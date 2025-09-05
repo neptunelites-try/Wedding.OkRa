@@ -48,7 +48,20 @@ body::after {
 
 .envelope.open .flap { transform:rotateX(-160deg) }
 .envelope.open .env-inner { transform:translateY(-16px); transition:transform .9s cubic-bezier(.2,.9,.3,1) }
-.invite-card { position:absolute; top:30%; left:50%; transform:translateX(-50%); width:86%; background:var(--paper); border-radius:12px; padding:18px; box-shadow:0 12px 30px rgba(0,0,0,.18); opacity:0; transition:.9s cubic-bezier(.2,.9,.3,1) }
+.invite-card { 
+  position:absolute; 
+  top:30%; 
+  left:50%; 
+  transform:translateX(-50%); 
+  width:86%; 
+  background:var(--paper); 
+  border-radius:12px; 
+  padding:18px; 
+  box-shadow:0 12px 30px rgba(0,0,0,.18); 
+  opacity:0; 
+  transition:.9s cubic-bezier(.2,.9,.3,1);
+  z-index:1; /* ✅ tambahan supaya tidak tembus di atas flap */
+}
 .envelope.open .invite-card { opacity:1; transform:translate(-50%,-6px) }
 .invite-card h1 { font-family:Playfair Display; font-size:28px; color:var(--brown); text-align:center; margin:0 }
 .invite-card p { text-align:center; margin:8px 0 }
