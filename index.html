@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Undangan Pernikahan — Tema Tradisional Jawa Tengah</title>
+  <meta name="description" content="Undangan pernikahan dengan amplop pembuka, motif batik, musik gamelan, galeri, RSVP, dan peta." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Montserrat:wght@300;400;600&family=Noto+Sans+Javanese:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ===== Amplop ===== -->
+  <div class="envelope-wrap" id="envelopeWrap">
+    <div class="envelope" id="envelope">
+      <div class=" "></div>
+      <div class="flap"></div>
+      <div class="env-inner">
+        <div class="invite-card">
+          <h1>Undangan Pernikahan</h1>
+          <p class="muted">Okki ❤️ Rara — 12 Oktober 2025</p>
+          <p class="muted">Sebuah undangan hangat dari kami</p>
+        </div>
+      </div>
+      <div class="bottom"></div>
+      <div class="seal"><span>Open</span></div>
+    </div>
+  </div>
+
+  <!-- ===== Konten Utama ===== -->
+  <main class="wrap" id="mainContent">
+    <header class="card hero">
+      <div class="aksara">ꦲꦤꦕꦫꦤ꧀</div>
+      <div class="couple">Okki Pratama ❤️ Rara Dwi Lestari</div>
+      <div class="date">Minggu, 12 Oktober 2025 • Surakarta</div>
+      <p style="max-width:700px;opacity:.9">
+        "Ajining dhiri saka lathi, ajining raga saka busana"
+      </p>
+      <!-- Musik otomatis, tombol manual dihapus -->
+      <audio id="bgm" loop preload="auto">
+        <source src="audio/gamelan.mp3" type="audio/mpeg">
+      </audio>
+    </header>
+
+    <!-- Info Acara -->
+    <section class="card">
+      <h2>Informasi Acara</h2>
+      <div class="grid">
+        <div class="tile">
+          <h3>Waktu</h3>
+          <p>Akad: 09.00 WIB<br>Resepsi: 11.00 — 14.00 WIB</p>
+        </div>
+        <div class="tile">
+          <h3>Lokasi</h3>
+          <p>Pura Mangkunegaran, Surakarta</p>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeri -->
+    <section class="card">
+      <h2>Galeri Prewedding</h2>
+      <div class="gallery" id="gallery">
+        <img data-src="img/prewedding-1.jpg" alt="Prewedding 1">
+        <img data-src="img/prewedding-2.jpg" alt="Prewedding 2">
+        <img data-src="img/prewedding-3.jpg" alt="Prewedding 3">
+        <img data-src="img/prewedding-4.jpg" alt="Prewedding 4">
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="card">
+      <h2>RSVP</h2>
+      <form id="rsvp" class="rsvp">
+        <input type="text" name="name" placeholder="Nama lengkap" required>
+        <select name="guests" required>
+          <option value="">Jumlah tamu</option><option>1</option><option>2</option>
+        </select>
+        <textarea name="message" rows="4" placeholder="Ucapan / doa"></textarea>
+        <button class="btn" type="submit">Kirim</button>
+        <div id="r_status" style="color:var(--brown);font-weight:600"></div>
+      </form>
+    </section>
+
+    <footer class="card">
+      <p><b>Matur nuwun sanget — Terima kasih</b></p>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(12,8,6,.8);z-index:300">
+    <img id="lightboxImg" src="" style="max-width:92%;max-height:86%;border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5)">
+  </div>
+
+<script src="script.js"></script>
+
+<!-- Script untuk play musik saat amplop dibuka -->
+<script>
+  const bgm = document.getElementById("bgm");
+  const envelopeWrap = document.getElementById("envelopeWrap");
+
+  envelopeWrap.addEventListener("click", function() {
+    bgm.play();
+  });
+</script>
+</body>
+</html>

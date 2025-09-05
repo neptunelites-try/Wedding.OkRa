@@ -1,0 +1,82 @@
+/* ===== CSS dipindahkan ke file ini ===== */
+:root {
+  --brown:#6b4f2a; 
+  --brown-dark:#2e241b; 
+  --gold:#c9a227;
+  --cream:#f7f0e6; 
+  --paper:#fffaf2; 
+  --radius:18px;
+}
+* { box-sizing:border-box; margin:0; padding:0 }
+html,body {
+  height:100%; 
+  background:transparent;
+  font-family:Montserrat,Arial; 
+  color:var(--brown-dark)
+}
+
+/* ===== Background Motif Batik ===== */
+body::before {
+  content:''; position:fixed; inset:0; z-index:-2;
+  background:var(--cream);
+}
+body::after {
+  content:''; position:fixed; inset:0; z-index:-1; opacity:55;
+  background-image:url("img/wallpap.png");
+  background-size:768px 512px;
+}
+
+/* Amplop, segel, animasi, dsb. */
+.envelope-wrap { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(58,40,25,.82) ; z-index:200 }
+.envelope { width:min(540px,92%); max-width:700px; aspect-ratio:16/10; position:relative; perspective:1000px }
+.env-back { position:absolute; inset:0; background:linear-gradient(180deg,#5a3f24,#3b2716); border-radius:12px; box-shadow:0 16px 40px rgba(0,0,0,.4) }
+.env-inner { position:absolute; inset:12px; border-radius:10px; background:linear-gradient(180deg,#f7efe3,#f1e7d0); display:flex; align-items:center; justify-content:center; padding:24px }
+.flap { position:absolute; top:0; left:0; right:0; height:50%; background:linear-gradient(180deg,#6b4f2a,#4c361f); border-top-left-radius:12px; border-top-right-radius:12px; transform-origin:center top; transition:transform 1s cubic-bezier(.2,.9,.3,1); z-index:4 }
+.bottom { position:absolute; bottom:0; left:0; right:0; height:52%; background:linear-gradient(180deg,#4b321b,#30210f); border-bottom-left-radius:12px; border-bottom-right-radius:12px }
+
+.seal { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:86px; height:86px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#ffd77f 0%,#c49a28 40%,#8b6b1b 100%); box-shadow:0 8px 18px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; font-family:"Playfair Display"; font-weight:700; color:var(--brown-dark); cursor:pointer; transition:box-shadow .3s; z-index:5; animation:wiggle 2.2s ease-in-out infinite }
+.seal span { font-size:22px; transition:transform .3s }
+.seal:hover span { transform:scale(1.1) }
+.seal:hover { box-shadow:0 0 25px rgba(201,162,39,.8),0 8px 18px rgba(0,0,0,.35) }
+
+@keyframes wiggle {
+  0%,100% { transform:translate(-50%,-50%) rotate(0) }
+  25%     { transform:translate(-50%,-50%) rotate(-4deg) }
+  50%     { transform:translate(-50%,-50%) rotate(0) }
+  75%     { transform:translate(-50%,-50%) rotate(4deg) }
+}
+
+.envelope.open .flap { transform:rotateX(-160deg) }
+.envelope.open .env-inner { transform:translateY(-16px); transition:transform .9s cubic-bezier(.2,.9,.3,1) }
+.invite-card { position:absolute; top:30%; left:50%; transform:translateX(-50%); width:86%; background:var(--paper); border-radius:12px; padding:18px; box-shadow:0 12px 30px rgba(0,0,0,.18); opacity:0; transition:.9s cubic-bezier(.2,.9,.3,1) }
+.envelope.open .invite-card { opacity:1; transform:translate(-50%,-6px) }
+.invite-card h1 { font-family:Playfair Display; font-size:28px; color:var(--brown); text-align:center; margin:0 }
+.invite-card p { text-align:center; margin:8px 0 }
+
+main { opacity:0; transform:translateY(18px); transition:.9s; pointer-events:none }
+main.visible { opacity:1; transform:translateY(0); pointer-events:auto }
+.wrap { max-width:1100px; margin:0 auto; padding:22px }
+.card { background:var(--paper); border-radius:var(--radius); box-shadow:0 12px 30px rgba(0,0,0,.08); padding:20px; margin:18px 0 }
+
+.hero { text-align:center; padding-top:18px }
+.aksara { font-family:'Noto Sans Javanese'; color:var(--gold); font-size:20px }
+.couple { font-family:Playfair Display; font-size:36px; color:var(--brown); margin:6px 0 }
+.date { color:var(--brown-dark); opacity:.9 }
+
+.grid { display:grid; gap:14px }
+@media(min-width:820px){ .grid{grid-template-columns:1fr 1fr} }
+.tile { background:#fff; border-radius:12px; padding:12px; box-shadow:0 8px 20px rgba(0,0,0,.06) }
+
+.map { height:260px; border-radius:12px; overflow:hidden }
+.map iframe { width:100%; height:100%; border:0 }
+
+.gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:12px }
+@media(min-width:820px){ .gallery{grid-template-columns:repeat(4,1fr)} }
+.gallery img { width:100%; height:160px; object-fit:cover; border-radius:10px; opacity:0; transform:translateY(12px); transition:.6s ease }
+.gallery img.visible { opacity:1; transform:translateY(0) }
+
+form.rsvp { display:grid; gap:10px }
+input,select,textarea { padding:10px; border-radius:10px; border:1px solid #e7dcc8; font:inherit }
+.btn { background:linear-gradient(180deg,var(--gold),#b2881a); border:0; padding:12px 16px; border-radius:10px; font-weight:700; cursor:pointer }
+footer { text-align:center; padding:16px; color:var(--brown) }
+.muted { opacity:.8 }
