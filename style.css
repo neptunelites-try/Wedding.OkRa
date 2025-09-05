@@ -33,7 +33,17 @@ body::after {
 /* Bagian amplop */
 .env-back { position:absolute; inset:0; background:linear-gradient(180deg,#5a3f24,#3b2716); border-radius:12px; box-shadow:0 16px 40px rgba(0,0,0,.4); z-index:0 }
 .env-inner { position:absolute; inset:12px; border-radius:10px; background:linear-gradient(180deg,#f7efe3,#f1e7d0); display:flex; align-items:center; justify-content:center; padding:24px; z-index:1 }
-.bottom { position:absolute; bottom:0; left:0; right:0; height:52%; background:linear-gradient(180deg,#4b321b,#30210f); border-bottom-left-radius:12px; border-bottom-right-radius:12px; z-index:2 }
+.bottom { 
+  position:absolute; 
+  bottom:-20px; /* diturunkan lebih ke bawah */
+  left:0; 
+  right:0; 
+  height:65%; /* lebih tinggi supaya nutup lebih banyak */
+  background:linear-gradient(180deg,#4b321b,#30210f); 
+  border-bottom-left-radius:12px; 
+  border-bottom-right-radius:12px; 
+  z-index:2; 
+}
 .flap { position:absolute; top:0; left:0; right:0; height:50%; background:linear-gradient(180deg,#6b4f2a,#4c361f); border-top-left-radius:12px; border-top-right-radius:12px; transform-origin:center top; transition:transform 1s cubic-bezier(.2,.9,.3,1); z-index:3 }
 
 /* Segel */
